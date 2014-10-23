@@ -10,11 +10,11 @@ Deploy an app to Heroku without using git.
 ## Install
 
 ```sh
-$ go get github.com/naaman/hbuild/cmd/hbuild
+$ go get github.com/heroku/hbuild/cmd/hbuild
 ```
 
 Alternatively, you can install a pre-packaged binary via
-[Gobuild](http://beta.gobuild.io/github.com/naaman/hbuild/cmd/hbuild):
+[Gobuild](http://beta.gobuild.io/github.com/heroku/hbuild/cmd/hbuild):
 
 - [Linux](http://beta.gobuild.io/download?os=linux&arch=amd64&rid=285)
 - [Mac](http://beta.gobuild.io/download?os=darwin&arch=amd64&rid=285)
@@ -57,7 +57,7 @@ build, _ := hbuild.NewBuild(apiKey, appName, source)
 io.Copy(os.Stdout, build.Output)
 ```
 
-Note: see the [hbuild command source](https://github.com/naaman/hbuild/blob/master/cmd/hbuild/main.go)
+Note: see the [hbuild command source](https://github.com/heroku/hbuild/blob/master/cmd/hbuild/main.go)
 for slightly more detail.
 
 ## TODO
