@@ -1,13 +1,14 @@
 package hbuild
 
 import (
+	"fmt"
 	"io"
 	"net/http"
 )
 
 type Build struct {
 	Id     UUID
-	Output io.Reader
+	Output io.ReadCloser
 	status string
 	token  string
 	app    string
@@ -51,6 +52,7 @@ func NewBuild(token, app string, source Source, opts BuildOptions) (build Build,
 	build.Id = UUID(buildResJson.Id)
 	build.token = token
 	build.app = app
+	fmt.Println("\n\t===> type: ", stream.Body.(type))
 	build.Output = stream.Body
 	return
 }
