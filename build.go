@@ -52,7 +52,14 @@ func NewBuild(token, app string, source Source, opts BuildOptions) (build Build,
 	build.Id = UUID(buildResJson.Id)
 	build.token = token
 	build.app = app
-	fmt.Println("\n\t===> type: ", stream.Body.(type))
+	switch stream.Body.(type) {
+	case io.Reader:
+		r.print("\n\t---> upstream reader\n")
+	case io.ReadCloser:
+		r.print("\n\t---> upstream closer\n")
+	default:
+		r.print(" upstream no idea what you're doing\n")
+	}
 	build.Output = stream.Body
 	return
 }
