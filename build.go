@@ -54,11 +54,11 @@ func NewBuild(token, app string, source Source, opts BuildOptions) (build Build,
 	build.app = app
 	switch stream.Body.(type) {
 	case io.Reader:
-		r.print("\n\t---> upstream reader\n")
+		fmt.Println("\n\t---> upstream reader\n")
 	case io.ReadCloser:
-		r.print("\n\t---> upstream closer\n")
+		fmt.Println("\n\t---> upstream closer\n")
 	default:
-		r.print(" upstream no idea what you're doing\n")
+		fmt.Println(" upstream no idea what you're doing\n")
 	}
 	build.Output = stream.Body
 	return
